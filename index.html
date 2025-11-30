@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistem Data Mahasiswa ITTS</title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="container">
+        <!-- Sidebar Navigasi -->
+        <nav class="sidebar">
+            <div class="logo">
+                <!-- LOGO KAMPUS ITTS DI SINI -->
+                <div class="logo-img-wrapper">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQf9g1dIBwgAivHXbeHXCJelu6-T77ETcZ6Gg&s" alt="Logo ITTS">
+                </div>
+                <h2>Saam<span>ITTS</span></h2>
+            </div>
+            
+            <ul class="nav-links">
+                <li><a href="#" class="active" onclick="showPage('dashboard')">📊 Data Mahasiswa</a></li>
+                <li><a href="#" onclick="showPage('input')">➕ Input Data Baru</a></li>
+            </ul>
+            <div class="footer-nav">
+                <p>&copy; 2025 Mahasiswa ITTS</p>
+            </div>
+        </nav>
+
+        <!-- Area Konten Utama (Tidak berubah dari sebelumnya) -->
+        <main class="main-content">
+            
+            <!-- Halaman 1: Dashboard -->
+            <section id="dashboard-view" class="view active">
+                <header>
+                    <h1>Rekapitulasi Absensi & Nilai</h1>
+                    <p>Institut Teknologi Tangerang Selatan</p>
+                </header>
+
+                <div class="stats-cards">
+                    <div class="card">
+                        <h3>Total Mahasiswa</h3>
+                        <p id="total-students">0</p>
+                    </div>
+                    <div class="card">
+                        <h3>Lulus</h3>
+                        <p id="total-pass" style="color: var(--success);">0</p>
+                    </div>
+                </div>
+
+                <div class="table-container">
+                    <table id="student-table">
+                        <thead>
+                            <tr>
+                                <th>NIM</th>
+                                <th>Nama Lengkap</th>
+                                <th>Prodi & Angkatan</th>
+                                <th>Mata Kuliah</th>
+                                <th>Nilai</th>
+                                <th>Status</th>
+                                <th>Aksi</th>
+                            </tr>
+                        </thead>
+                        <tbody id="table-body">
+                            <tr class="empty-row">
+                                <td colspan="7" style="text-align:center;">Belum ada data mahasiswa.</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <!-- Halaman 2: Form Input -->
+            <section id="input-view" class="view hidden">
+                <header>
+                    <h1>Input Data Mahasiswa</h1>
+                    <p>Masukkan data mahasiswa ITTS dengan lengkap.</p>
+                </header>
+
+                <div class="form-wrapper">
+                    <form id="data-form">
+                        <div class="form-group">
+                            <label for="nim">NIM</label>
+                            <input type="number" id="nim" placeholder="Contoh: 2025001" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="nama">Nama Lengkap</label>
+                            <input type="text" id="nama" placeholder="Nama Mahasiswa" required>
+                        </div>
+
+                        <div class="row">
+                            <div class="form-group">
+                                <label for="prodi">Program Studi</label>
+                                <select id="prodi" required>
+                                    <option value="" disabled selected>Pilih Prodi</option>
+                                    <option value="Teknik Informatika">Teknik Informatika</option>
+                                    <option value="Sistem Informasi">Sistem Informasi</option>
+                                    <option value="Teknologi Informasi">Teknologi Informasi</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="angkatan">Angkatan</label>
+                                <input type="number" id="angkatan" placeholder="2023" required>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="form-group">
+                                <label for="matkul">Mata Kuliah</label>
+                                <input type="text" id="matkul" placeholder="Nama Mata Kuliah" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="nilai">Nilai Akhir (0-100)</label>
+                                <input type="number" id="nilai" min="0" max="100" placeholder="0" required>
+                            </div>
+                        </div>
+
+                        <div class="form-actions">
+                            <button type="button" class="btn-cancel" onclick="showPage('dashboard')">Batal</button>
+                            <button type="submit" class="btn-submit">Simpan Data</button>
+                        </div>
+                    </form>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

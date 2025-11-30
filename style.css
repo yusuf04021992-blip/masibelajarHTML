@@ -1,0 +1,168 @@
+/* --- CSS Reset & Variables --- */
+:root {
+    --primary: #4F46E5; 
+    --primary-hover: #4338ca;
+    --bg-light: #F3F4F6;
+    --sidebar-bg: #111827; /* Warna sidebar sedikit lebih gelap untuk kesan modern */
+    --text-dark: #111827;
+    --text-gray: #6B7280;
+    --white: #ffffff;
+    --success: #10B981;
+    --danger: #EF4444;
+    --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Inter', sans-serif;
+}
+
+body {
+    background-color: var(--bg-light);
+    color: var(--text-dark);
+}
+
+/* --- Layout Utama --- */
+.container {
+    display: flex;
+    min-height: 100vh;
+}
+
+/* --- Sidebar Styling (Updated) --- */
+.sidebar {
+    width: 280px; /* Lebar sidebar sedikit ditambah */
+    background-color: var(--sidebar-bg);
+    color: var(--white);
+    padding: 2rem 1.5rem;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Styling Khusus Logo ITTS */
+.logo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 2.5rem;
+    text-align: center;
+}
+
+.logo-img-wrapper {
+    background-color: var(--white); /* Background putih agar logo ITTS terlihat */
+    padding: 10px;
+    border-radius: 12px;
+    margin-bottom: 1rem;
+    width: 80px;
+    height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+}
+
+.logo img {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+}
+
+.logo h2 {
+    font-size: 1.5rem;
+    margin: 0;
+    font-weight: 700;
+    letter-spacing: -0.5px;
+}
+
+.logo span {
+    color: #FACC15; /* Warna Kuning Emas agar kontras */
+}
+
+/* --- Navigation Links --- */
+.nav-links {
+    list-style: none;
+    flex: 1;
+}
+
+.nav-links li {
+    margin-bottom: 0.5rem;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: #9CA3AF;
+    display: flex; /* Agar icon (jika ada) dan teks sejajar */
+    align-items: center; 
+    padding: 0.85rem 1rem;
+    border-radius: 8px;
+    transition: all 0.3s;
+    font-weight: 500;
+}
+
+.nav-links a:hover, .nav-links a.active {
+    background-color: var(--primary);
+    color: var(--white);
+    transform: translateX(5px); /* Efek geser sedikit saat hover */
+}
+
+.footer-nav {
+    font-size: 0.75rem;
+    text-align: center;
+    color: #4B5563;
+    border-top: 1px solid #374151;
+    padding-top: 1rem;
+}
+
+/* --- Main Content --- */
+.main-content {
+    flex: 1;
+    padding: 2.5rem;
+    overflow-y: auto;
+}
+
+/* --- Sisa CSS sama seperti sebelumnya (View, Table, Form) --- */
+/* Pastikan menyalin sisa CSS dari jawaban sebelumnya (Header, Cards, Table, Form) ke bawah sini */
+
+header {
+    margin-bottom: 2rem;
+}
+header h1 { font-size: 1.8rem; font-weight: 700; color: #1F2937; }
+header p { color: var(--text-gray); margin-top: 0.5rem; }
+
+/* Animation */
+.view { display: none; animation: fadeIn 0.4s ease-in-out; }
+.view.active { display: block; }
+@keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+
+/* Stats Cards */
+.stats-cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1.5rem; margin-bottom: 2rem; }
+.card { background: var(--white); padding: 1.5rem; border-radius: 12px; box-shadow: var(--shadow); border-left: 4px solid var(--primary); }
+.card h3 { font-size: 0.9rem; color: var(--text-gray); margin-bottom: 0.5rem; }
+.card p { font-size: 2rem; font-weight: 700; color: var(--text-dark); }
+
+/* Table */
+.table-container { background: var(--white); border-radius: 12px; padding: 1rem; box-shadow: var(--shadow); overflow-x: auto; }
+table { width: 100%; border-collapse: collapse; }
+th, td { padding: 1rem; text-align: left; border-bottom: 1px solid #E5E7EB; }
+th { font-weight: 600; color: var(--text-gray); font-size: 0.85rem; text-transform: uppercase; background-color: #F9FAFB; }
+.status-pass { background-color: #D1FAE5; color: #065F46; padding: 4px 12px; border-radius: 20px; font-size: 0.8rem; font-weight: 600; }
+.status-fail { background-color: #FEE2E2; color: #991B1B; padding: 4px 12px; border-radius: 20px; font-size: 0.8rem; font-weight: 600; }
+.btn-delete { background-color: #FEE2E2; color: #EF4444; padding: 6px 12px; font-size: 0.8rem; border-radius: 6px; border: none; cursor: pointer; }
+.btn-delete:hover { background-color: #FCA5A5; color: #991B1B; }
+
+/* Form */
+.form-wrapper { background: var(--white); padding: 2rem; border-radius: 12px; box-shadow: var(--shadow); max-width: 650px; }
+.form-group { margin-bottom: 1.2rem; }
+.row { display: flex; gap: 1.5rem; }
+.row .form-group { flex: 1; }
+label { display: block; margin-bottom: 0.5rem; font-size: 0.9rem; font-weight: 600; color: #374151; }
+input, select { width: 100%; padding: 0.75rem; border: 1px solid #D1D5DB; border-radius: 8px; font-size: 1rem; transition: all 0.2s; }
+input:focus, select:focus { outline: none; border-color: var(--primary); box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.1); }
+.form-actions { display: flex; justify-content: flex-end; gap: 1rem; margin-top: 2rem; }
+button { padding: 0.75rem 1.5rem; border-radius: 8px; cursor: pointer; font-weight: 600; border: none; transition: all 0.2s; }
+.btn-submit { background-color: var(--primary); color: var(--white); }
+.btn-submit:hover { background-color: var(--primary-hover); transform: translateY(-1px); }
+.btn-cancel { background-color: transparent; color: var(--text-gray); border: 1px solid #D1D5DB; }
+.btn-cancel:hover { background-color: #F3F4F6; }
